@@ -147,7 +147,7 @@ fun HomeScreen(
 
                         result.data?.let {
                             LazyColumn {
-                                itemsIndexed(items = it.toList()) { index, item ->
+                                itemsIndexed(items = it) { index, item ->
                                     quizItemShow(question = item){
 
                                         quiz_type=item.question
@@ -207,7 +207,7 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
         backgroundColor =if(selected_Answer) SelectColor else SelectColor,
         onClick = {
          onClick()
-         // expanded = !expanded
+
           }
         ) {
 
@@ -235,11 +235,14 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
 
                          Column {
 
-                             chiplist.forEach {
+                            //sortedBy
+
+
+
+                             chiplist.sortedDescending().forEach {
 
                                 SuggestionRow(label =it , select = it ==chipStatus){chip->
                                      chipStatus = chip
-
 
                                     if (question.correctAnswer.equals("A") && question.answers.A.equals(it)) {
                                         selected_Answer = !selected_Answer
@@ -277,8 +280,8 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
 fun SuggestionRow(
     label:String,
     select:Boolean,
-    onChipChange:(String)->Unit,
-){
+    onChipChange:(String)->Unit
+)  {
 
     SuggestionChip(onClick = {
         if (!select)

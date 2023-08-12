@@ -1,5 +1,6 @@
 package com.example.jetpackcomposetask.screen
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -8,7 +9,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -27,7 +28,6 @@ import com.example.starbucks_ui.screen.start
 
 @Composable
 fun StartScreen(navHostController: NavHostController){
-
 
     Box (
         modifier = Modifier
