@@ -40,7 +40,6 @@ import com.example.jetpackcomposetask.utils.NetworkResult
 import com.example.jetpackcomposetask.view.ui.theme.*
 import com.example.jetpackcomposetask.viewmodel.quizViewModel
 import com.example.starbucks_ui.component.AppIconComponent
-import com.example.starbucks_ui.screen.quiz_details
 import okio.ByteString.Companion.encode
 
 

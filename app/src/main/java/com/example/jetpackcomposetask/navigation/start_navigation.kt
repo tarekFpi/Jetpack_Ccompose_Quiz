@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcomposetask.model.Question
-import com.example.jetpackcomposetask.screen.DetailScreen
 import com.example.jetpackcomposetask.screen.HomeScreen
 import com.example.jetpackcomposetask.screen.StartScreen
 
@@ -23,13 +22,9 @@ fun StarBucksNavigation() {
         composable(home){
            HomeScreen(navHostController = navHostController)
         }
-        composable(quiz_details){
 
-           DetailScreen(navHostController = navHostController)
-        }
     }
 }
 
 const val start = "start_screen"
 const val home = "home_screen"
-const val quiz_details ="product_detail_screen"
