@@ -47,6 +47,7 @@ class HomeActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
+
                         StarBucksNavigation()
                     }
                 }

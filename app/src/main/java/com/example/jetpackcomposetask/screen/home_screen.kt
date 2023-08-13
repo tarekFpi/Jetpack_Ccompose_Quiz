@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
@@ -40,6 +41,7 @@ import com.example.jetpackcomposetask.utils.NetworkResult
 import com.example.jetpackcomposetask.view.ui.theme.*
 import com.example.jetpackcomposetask.viewmodel.quizViewModel
 import com.example.starbucks_ui.component.AppIconComponent
+import kotlinx.coroutines.flow.collect
 import okio.ByteString.Companion.encode
 
 
@@ -130,7 +132,10 @@ fun HomeScreen(
                     }
                 }
 
-                when (val result = viewModel.state_response.value) {
+
+
+
+                when (val result = viewModel.state_response.collectAsState().value) {
 
                     is NetworkResult.Loading -> {
 
@@ -202,8 +207,6 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
             .fillMaxWidth(),
         elevation = 2.dp,
         shape = RoundedCornerShape(18.dp),
-      // backgroundColor = CategoryTwo,
-       // backgroundColor = if(selected_Answer) Color.Green else Color.White,
         backgroundColor =if(selected_Answer) SelectColor else SelectColor,
         onClick = {
          onClick()

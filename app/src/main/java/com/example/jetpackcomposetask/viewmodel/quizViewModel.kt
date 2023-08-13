@@ -22,9 +22,8 @@ class quizViewModel @Inject constructor(private val quizRepository: quizReposito
 ) : ViewModel(){
 
 
-    private  var _response = mutableStateOf<NetworkResult<List<Question>>>(NetworkResult.Loading())
-    val state_response: State<NetworkResult<List<Question>>> = _response
-
+    private  var _response = MutableStateFlow<NetworkResult<List<Question>>>(NetworkResult.Loading())
+    val state_response: StateFlow<NetworkResult<List<Question>>> = _response
 
 
  /*   val quizListResponseLiveData : LiveData<NetworkResult<List<Article>>>
@@ -37,15 +36,16 @@ class quizViewModel @Inject constructor(private val quizRepository: quizReposito
 
           quizRepository.qustionList().onStart {
 
-              _response.value = NetworkResult.Loading()
+            //  _response.value = NetworkResult.Loading() //or set Data
+              _response.emit(NetworkResult.Loading())
 
           }.catch {
 
-            _response.value =NetworkResult.Error(it.message)
+            _response.emit(NetworkResult.Error(it.message))
 
             }.collect{
 
-           _response.value =NetworkResult.Success(it.questions)
+           _response.emit(NetworkResult.Success(it.questions))
           }
         }
     }
