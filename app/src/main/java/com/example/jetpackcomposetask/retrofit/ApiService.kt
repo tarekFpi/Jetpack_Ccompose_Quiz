@@ -9,5 +9,5 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("quiz.json")
-    suspend  fun getPost(): quiz_response
+     suspend fun getPost(): quiz_response
 }

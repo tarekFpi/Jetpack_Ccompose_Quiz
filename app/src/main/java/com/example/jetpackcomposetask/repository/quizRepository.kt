@@ -17,45 +17,9 @@ import javax.inject.Inject
 
 class  quizRepository@Inject constructor(private val apiService: ApiService) {
 
-    suspend fun qustionList()  = flow {
+      fun qustionList()  = flow {
 
         emit(apiService.getPost())
 
     }.flowOn(Dispatchers.IO)
-
-
-
- /*   private var _qustionListResponseLiveData = MutableLiveData<NetworkResult<List<Article>>>()
-    val  qustionResponseLiveData : LiveData<NetworkResult<List<Article>>>
-    get() =_qustionListResponseLiveData
-
-    suspend  fun qustionList(){
-
-        _qustionListResponseLiveData.postValue(NetworkResult.Loading())
-
-        try {
-            val response = apiService.getPost()
-
-            if (response.isSuccessful && response.body() != null) {
-
-          _qustionListResponseLiveData.postValue(NetworkResult.Success(response.body()!!.articles))
-
-            } else if (response.errorBody() != null) {
-                val errorObj = JSONObject(response.errorBody()!!.charStream().readText())
-                _qustionListResponseLiveData.postValue(NetworkResult.Error(errorObj.getString("message")))
-            } else {
-                _qustionListResponseLiveData.postValue(NetworkResult.Error("Something Went Wrong"))
-            }
-
-        } catch(e: Exception) {
-
-            _qustionListResponseLiveData.postValue(NetworkResult.Error(e.message!!))
-
-            Log.d("Exception","${e.message}")
-        }
-    }
-*/
-
-
-
 }

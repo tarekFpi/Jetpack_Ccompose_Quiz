@@ -1,14 +1,12 @@
-@file:OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 
 package com.example.jetpackcomposetask.screen
-
 import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -134,7 +132,6 @@ fun HomeScreen(
 
 
 
-
                 when (val result = viewModel.state_response.collectAsState().value) {
 
                     is NetworkResult.Loading -> {
@@ -155,7 +152,7 @@ fun HomeScreen(
                                 itemsIndexed(items = it) { index, item ->
                                     quizItemShow(question = item){
 
-                                        quiz_type=item.question
+                                       quiz_type=item.question
                                         quiz_scroe=item.score
 
                                         if(!item.questionImageUrl.isNullOrEmpty()){
@@ -240,8 +237,6 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
 
                             //sortedBy
 
-
-
                              chiplist.sortedDescending().forEach {
 
                                 SuggestionRow(label =it , select = it ==chipStatus){chip->
@@ -251,18 +246,25 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
+                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+
                                     } else if (question.correctAnswer.equals("B") && question.answers.B.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
+
+                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
 
                                     } else if (question.correctAnswer.equals("C") && question.answers.C.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
+                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+
                                     }else if (question.correctAnswer.equals("D") && question.answers.D.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
+                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
                                     } else {
 
                                         Toast.makeText(context, "Not correctAnswer", Toast.LENGTH_SHORT).show()
