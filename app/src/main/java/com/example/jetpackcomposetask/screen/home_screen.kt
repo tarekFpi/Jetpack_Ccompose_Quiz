@@ -246,25 +246,25 @@ fun quizItemShow(question: Question, onClick: () -> Unit ){
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
-                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(context, "correctAnswer", Toast.LENGTH_SHORT).show()
 
                                     } else if (question.correctAnswer.equals("B") && question.answers.B.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
-                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(context, "correctAnswer", Toast.LENGTH_SHORT).show()
 
                                     } else if (question.correctAnswer.equals("C") && question.answers.C.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
-                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(context, "correctAnswer", Toast.LENGTH_SHORT).show()
 
                                     }else if (question.correctAnswer.equals("D") && question.answers.D.equals(it)) {
                                         selected_Answer = !selected_Answer
                                         SelectColor = Color.Green
 
-                                        Toast.makeText(context, " correctAnswer", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(context, "correctAnswer", Toast.LENGTH_SHORT).show()
                                     } else {
 
                                         Toast.makeText(context, "Not correctAnswer", Toast.LENGTH_SHORT).show()
